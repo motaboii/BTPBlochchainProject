@@ -1,0 +1,51 @@
+/* Default styles for all screen sizes */
+body {
+  background-color: #6d6d34; /* Cream color */
+  margin: 0; /* Remove default body margin */
+  padding: 0; /* Remove default body padding */
+}
+
+
+
+
+.main-title {
+  font-size: 1rem;
+  text-transform: uppercase;
+  color: #fff;
+}
+
+.main-para {
+  font-size: 1rem;
+  color: #fff;
+}
+
+.connect-button {
+  background-color: #8aff8a;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.connect-button:hover {
+  background-color: #408040;
+}
+
+/* Media query for screens with a maximum width of 600 pixels (typical for phones) */
+@media only screen and (max-width: 600px) {
+  .main-title {
+    font-size: 0.8rem; /* Adjust font size for smaller screens */
+  }
+
+  .main-para {
+    font-size: 0.8rem; /* Adjust font size for smaller screens */
+  }
+
+  .connect-button {
+    font-size: 14px; /* Adjust font size for smaller screens */
+    padding: 8px 16px; /* Adjust padding for smaller screens */
+  }
+}

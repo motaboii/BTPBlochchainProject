@@ -1,0 +1,35 @@
+.features-container {
+    background-color: #333; /* Dark grey background color */
+    color: #fff; /* White text color */
+    padding: 50px;
+  }
+  
+  .features-heading {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 30px;
+  }
+  
+  .feature-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+  
+  .feature-section {
+    background-color: #555; /* Dark grey background for individual feature sections */
+    padding: 20px;
+    border-radius: 10px;
+  }
+  
+  .feature-section h2 {
+    font-size: 1.5rem;
+    text-align: center;
+    margin-bottom: 10px;
+  }
+  
+  .feature-section p {
+    font-size: 1rem;
+    line-height: 1.5;
+  }
+  

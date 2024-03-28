@@ -1,0 +1,86 @@
+/* SignInPage.css */
+
+.text-center {
+    text-align: center;
+  }
+  
+  .m-5-auto {
+    margin: 5rem auto;
+  }
+  
+  h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+    align-items: center;
+  }
+  
+  form {
+    background: #f9f9f9;
+    border: 4px solid #5aa0c8;
+    border-radius: 5px;
+    padding: 2rem;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    ;
+  }
+
+  .create-policy-container
+  {
+    margin-left: 450px;
+
+  }
+  
+  label {
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+    color: #555;
+    display: block;
+  }
+  
+  input {
+    width: 100%;
+    padding: 1rem;
+    border-radius: 5px;
+    outline: none;
+    border: 1px solid #625b5b;
+    margin-bottom: 1.5rem;
+  }
+  
+  .right-label {
+    float: right;
+    cursor: pointer;
+    color: #3498db;
+  }
+  
+  #sub_btn {
+    width: 100%;
+    padding: 1rem;
+    border: none;
+    background: #3498db;
+    color: #43a5b7;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  #sub_btn:hover {
+    background: #2980b9;
+  }
+  
+/* CreatePolicy.css */
+
+.submitted-card {
+  margin-top: 20px;
+  padding: 15px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  background-color: #f9f9f9;
+}
+
+.submitted-card h3 {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+}
+
+.submitted-card p {
+  margin: 5px 0;
+}

@@ -1,0 +1,41 @@
+/* MiddleSection.css */
+
+.middle-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 50px;
+  }
+  
+  .left-section {
+    flex-basis: 45%;
+    color: #6a1b9a; /* Purple color */
+  }
+  
+  .section-heading {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 20px; /* Added margin bottom for spacing */
+  }
+  
+  .section-text {
+    font-size: 1.2rem;
+    margin-top: 20px;
+  }
+  
+  .token-details {
+    margin-top: 20px;
+  }
+  
+  .right-section {
+    flex-basis: 45%;
+  }
+  
+  .token-image {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+    background: #1b1818;
+    border-color: blueviolet;
+  }
+  

@@ -1,0 +1,31 @@
+/* Add these styles to your existing stylesheet or create a new one for FullPolicy component */
+
+/* FullPolicy Component Styles */
+.full-policy-container {
+    max-width: 800px;
+    margin: 20px auto;
+    display: flex;
+    gap: 20px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .policy-image img {
+    max-width: 100%;
+    border-radius: 10px 0 0 10px;
+  }
+  
+  .policy-details {
+    flex: 1;
+    padding: 20px;
+  }
+  
+  .policy-details h2 {
+    color: #3498db; /* Blue color */
+  }
+  
+  .policy-details p {
+    margin: 10px 0;
+  }
+  

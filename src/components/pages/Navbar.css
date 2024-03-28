@@ -1,0 +1,57 @@
+/* Global Styles */
+body {
+  font-family: "Arial", sans-serif;
+  background-color: #f5f5f5; /* Light grey background */
+  margin: 0;
+  padding: 0;
+}
+
+/* Navbar Styles */
+.navbar {
+  background-color: #333; /* Dark grey background */
+  color: white;
+  padding: 10px;
+  
+
+}
+
+.navbar-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.nav-links {
+  display: flex;
+  gap: 20px;
+  color: azure;
+}
+
+.nav-link {
+  color: white;
+  text-decoration: none;
+  padding: 10px;
+  border-radius: 5px;
+  &:hover {
+    background-color: #555; /* Darker grey on hover */
+  }
+}
+
+.dapp-link {
+  cursor: pointer;
+  font-weight: bold;
+  color: #fefefe; /* Blue color */
+  display: flex;
+  gap: 1.5rem;
+}
+.usr {
+  color: white;
+}
+
+/* Policies Component Styles */
+/* Add styles for your Policies component or adjust as needed */
