@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './CreatePolicy.css';
+// import './CreatePolicy.css';
 import OrgNavbar from './OrgNavbar';
 import Footer from './Footer';
 
@@ -100,3 +100,8 @@ const CreatePolicy = () => {
 };
 
 export default CreatePolicy;
+
+
+
+
+

@@ -1,5 +1,7 @@
 "use client";
-
+import Web3 from "web3";
+import { useState } from "react";
+import { ethers } from "ethers";
 import {
   Box,
   Flex,
@@ -29,10 +31,45 @@ import { useAuth } from "../context/AuthContext";
 import Logo from "../utils/Logo";
 
 export default function Navbar() {
+  const [account, setAccount] = useState("");
+  const [contract, setContract] = useState("");
+  const [provider, setProvider] = useState("");
   const { isOpen, onToggle } = useDisclosure();
   let navigate = useNavigate();
 
   let { user, logout } = useAuth();
+
+  async function connectMetamask() {
+  //   // console.log("window.ethereum:", window.ethereum);
+  //   if (typeof window.ethereum !== "undefined") {
+  //     const provider = new ethers.providers.Web3Provider(window.ethereum);
+  //     // console.log("provider:", provider);
+  //     const loadProvider = async () => {
+  //       window.ethereum.on("chainChanged", () => {
+  //         window.location.reload();
+  //       });
+
+  //       window.ethereum.on("accountsChanged", () => {
+  //         window.location.reload();
+  //       });
+  //       await provider.send("eth_requestAccounts", []);
+  //       const signer = provider.getSigner();
+  //       const address = await signer.getAddress();
+  //       setAccount(address);
+  //       // let contractAddress = "0x3B117Ff72803eadECDc3944e414B5fb0931d872C";
+  //       // const contract = new ethers.Contract(contractAddress, SCM.abi, signer);
+
+  //       // setContract(contract);
+  //       // setProvider(provider);
+  //       // console.log(typeof contract);
+  //     };
+  //     // provider && loadProvider();
+  //   } 
+  //   // else {
+  //   //   if (!isAndroid) alert("Install Metamask");
+  //   // }
+  //   // console.log(account);
+  }
 
   return (
     <Box>
@@ -85,9 +122,10 @@ export default function Navbar() {
                 Sign In
               </Button>
               <Button onClick={() => {
-                  navigate("/register");
+                navigate("/register");
                 }}>Sign Up</Button>
-              <Button colorScheme={"green"}>Connect to Metamask Wallet</Button>
+              <Button 
+              onClick={connectMetamask} colorScheme={"green"}>Connect to Metamask Wallet</Button>
             </>
           ) : (
             <>

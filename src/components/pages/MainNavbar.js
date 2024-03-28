@@ -1,5 +1,7 @@
+
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { calcLength } from "framer-motion";
 
 const Navbar = () => {
   const [showRegisterDropdown, setShowRegisterDropdown] = useState(false);
@@ -82,6 +84,7 @@ const Navbar = () => {
     setShowRegisterDropdown(false);
   };
 
+
   return (
     <nav style={navbarStyle}>
       <div style={logoStyle}>Dapp</div>
@@ -138,7 +141,7 @@ const Navbar = () => {
             style={lightGreenButtonStyle}
             className="connect-button"
           >
-            Connect with MetaMask Wallet
+                        Connect with MetaMask Wallet
           </button>
         </div>
       </div>

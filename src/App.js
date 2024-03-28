@@ -6,12 +6,13 @@ import { ChakraProvider } from "@chakra-ui/react";
 import Navbar from "./components/pages/Navbar";
 import Footer from "./components/components/Footer";
 import LoginPage from "./components/pages/LoginPage";
-// import RegisterPage from './components/pages/RegisterPage'
+import RegisterPage from './components/pages/RegisterPage'
 // import ForgetPasswordPage from './components/pages/ForgetPasswordPage'
 import DashBoard from "./components/pages/DashBoard";
 import { AuthProvider } from "./components/context/AuthContext";
 import FullPolicy from './components/pages/fullpolicy'
-// import CreatePolicies from './components/pages/CreatePolicies'
+import CreatePolicies from './components/pages/CreatePolicies'
+import MedicalRecord from './components/pages/CreateMedicalRecord'
 // import Orglogin from './components/pages/orglogin'
 // import Orgregister from './components/pages/orgregister'
 // import OrgNavbar from './components/pages/OrgNavbar'
@@ -28,19 +29,18 @@ export default function App() {
             <Route exact path="/" element={<LandingPage />} />
             <Route path="/login" element={<LoginPage />} />
             <Route path="/dashboard" element={<DashBoard />} />
-            {/* <Route path="/register" element={<RegisterPage />} /> */}
+            <Route path="/register" element={<RegisterPage />} />
             <Route path="/fullpolicy" element={<FullPolicy />} />
-
-            {/* 
-          <Route path="/forget-password" element={<ForgetPasswordPage />} />
+            <Route path="/medicalrecord" element={<MedicalRecord />} />
+          {/* <Route path="/forget-password" element={<ForgetPasswordPage />} /> */}
           
          
           <Route path="/CreatePolicies" element={<CreatePolicies />} />
-          <Route path="/orglogin" element={<Orglogin />} />
+          {/* <Route path="/orglogin" element={<Orglogin />} />
           <Route path="/orgregister" element={<Orgregister />} />
           <Route path="/OrgNavbar" element={<OrgNavbar />} />
           <Route path="/home2" element={<Home2 />} />
-          <Route path="/UserProfile" element={<UserProfile />} /> */}
+          <Route path="/UserProfile" element={<UserProfile />} />  */}
           </Routes>
         </AuthProvider>
       </Router>
