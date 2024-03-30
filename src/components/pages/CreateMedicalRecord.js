@@ -1,14 +1,31 @@
 import React, { useState } from "react";
 // import OrgNavbar from './OrgNavbar';
-import Footer from './Footer';
-import { Flex, Box, FormControl, FormLabel, Input, Button, Heading, Checkbox, Text, useColorModeValue } from "@chakra-ui/react";
+import Footer from "./Footer";
+import {
+  Flex,
+  Box,
+  FormControl,
+  FormLabel,
+  Input,
+  Button,
+  Heading,
+  Checkbox,
+  Text,
+  useColorModeValue,
+} from "@chakra-ui/react";
+import { useAuth } from "../context/AuthContext";
+import axios from "axios";
 
 const CreateMedicalRecord = () => {
+  const url = "https://misty-ray-threads.cyclic.app/api/v1/hospital/addRecord";
+  const token = localStorage.getItem("token");
+  const { user } = useAuth();
+  const [isLoading, setIsLoading] = useState(false);
   const [formData, setFormData] = useState({
-    citizenId: '',
-    diagnosis: '',
-    bill: '',
-    hospitalName: '',
+    citizenId: "",
+    patientName: "",
+    diagnosis: "",
+    bill: "",
   });
   const [submittedDataList, setSubmittedDataList] = useState([]);
 
@@ -20,14 +37,40 @@ const CreateMedicalRecord = () => {
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setSubmittedDataList([...submittedDataList, formData]);
+    const arr = formData.diagnosis.split(",");
+
+    try {
+      setIsLoading(true);
+      const { data } = await axios.post(
+        url,
+        {
+          name: formData.patientName,
+          citizenID: formData.citizenId,
+          diagnosis: arr,
+          bill: formData.bill,
+          hospital: user.name,
+        },
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
+      setIsLoading(false);
+      alert("Success");
+    } catch (error) {
+      setIsLoading(false);
+      console.log(error);
+    }
+
     setFormData({
-      citizenId: '',
-      diagnosis: '',
-      bill: '',
-      hospitalName: '',
+      citizenId: "",
+      diagnosis: "",
+      bill: "",
+      patientName: "",
     });
   };
 
@@ -36,7 +79,8 @@ const CreateMedicalRecord = () => {
       {/* <OrgNavbar /> */}
       <Flex
         minH={"100vh"}
-        align={"center"}
+        mt={4}
+        align={"start"}
         justify={"center"}
         bg={useColorModeValue("gray.50", "gray.800")}
       >
@@ -60,6 +104,16 @@ const CreateMedicalRecord = () => {
                 placeholder="Enter Citizen ID"
               />
             </FormControl>
+            <FormControl id="patientName" mb={4}>
+              <FormLabel>Patient Name</FormLabel>
+              <Input
+                type="text"
+                name="patientName"
+                value={formData.patientName}
+                onChange={handleChange}
+                placeholder="Enter patient Name"
+              />
+            </FormControl>
             <FormControl id="diagnosis" mb={4}>
               <FormLabel>Diagnosis</FormLabel>
               <Input
@@ -80,20 +134,10 @@ const CreateMedicalRecord = () => {
                 placeholder="Enter Bill"
               />
             </FormControl>
-            <FormControl id="hospitalName" mb={4}>
-              <FormLabel>Hospital Name</FormLabel>
-              <Input
-                type="text"
-                name="hospitalName"
-                value={formData.hospitalName}
-                onChange={handleChange}
-                placeholder="Enter Hospital Name"
-              />
-            </FormControl>
             <Button
               type="submit"
               colorScheme="green"
-              isLoading={false}
+              isLoading={isLoading}
               loadingText="Submitting"
             >
               Submit
