@@ -35,17 +35,11 @@ export default function DashboardNavbar() {
           direction={"row"}
           spacing={6}
         >
-          <Button onClick={() => navigate("/claiminsurance")}>
-            Claim Insurance
+          <Button onClick={() => navigate("/addmedicalrecord")}>
+            Add Medical Record
           </Button>
           <Button onClick={() => navigate("/current-insurance")}>
-            See Current Insurance
-          </Button>
-          <Button onClick={() => navigate("/shop-policies")}>
-            Shop Policies
-          </Button>
-          <Button onClick={() => navigate("/current-insurance")}>
-            View Medical records
+            Patient's Record
           </Button>
           <Button onClick={logout} colorScheme={"red"} variant={"outline"}>
             Logout

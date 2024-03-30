@@ -1,24 +1,16 @@
 import React, { useState } from "react";
-// import './CreatePolicy.css';
-import OrgNavbar from "./OrgNavbar";
-import Footer from "./Footer";
-import { useAuth } from "../context/AuthContext";
-import { Button } from "@chakra-ui/react";
-import axios from "axios";
+import CompanyNavbar from "./CompanyNavbar";
+import Footer from "../components/Footer";
+import { Flex, Box, FormControl, FormLabel, Input, Button, Heading, useColorModeValue } from "@chakra-ui/react";
 
-const CreatePolicy = () => {
-  const url = "https://misty-ray-threads.cyclic.app/api/v1/company/listPolicy";
-  const [isLoading, setIsLoading] = useState(false);
-  const token = localStorage.getItem("token");
-
+const CreateInsurance = () => {
   const [formData, setFormData] = useState({
-    policyName: "",
-    coverage: "",
-    max_coverage: "",
-    price: "",
+    companyName: '',
+    policyName: '',
+    policyID: '',
+    amount: '',
+    description: ''
   });
-
-  const { user } = useAuth();
   const [submittedDataList, setSubmittedDataList] = useState([]);
 
   const handleChange = (e) => {
@@ -29,154 +21,101 @@ const CreatePolicy = () => {
     });
   };
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
-    // Add your logic to handle form submission here
-    const arr = formData.coverage.split(",");
-    try {
-      setIsLoading(true);
-      const { data } = await axios.post(
-        url,
-        {
-          name: formData.policyName,
-          company: user.name,
-          coverage: arr,
-          maxAmount: formData.max_coverage,
-          price: formData.price,
-        },
-        {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        }
-      );
-      setIsLoading(false);
-    } catch (error) {
-      setIsLoading(false);
-      console.log(error);
-    }
-    console.log("Form data submitted:", formData);
-
-    // Create a copy of the submitted data list and add the new data
     setSubmittedDataList([...submittedDataList, formData]);
-
-    // Reset form fields after submission
     setFormData({
-      policyName: "",
-      coverage: "",
-      max_coverage: " ",
-      price: "",
+      companyName: '',
+      policyName: '',
+      policyID: '',
+      amount: '',
+      description: ''
     });
   };
 
   return (
     <>
-      <OrgNavbar />
-      <div className="create-policy-container">
-        <br />
-        <h2 style={{ fontWeight: "bold", marginLeft: "50px" }}>
-          Create Policy
-        </h2>
-
-        <form onSubmit={handleSubmit}>
-          {/* <div className="form-group2">
-            <label htmlFor="companyName">Company Name:</label>
-            <input
-              type="text"
-              id="companyName"
-              name="companyName"
-              value={formData.companyName}
-              onChange={handleChange}
-              required
-            />
-          </div> */}
-          <div className="form-group">
-            <label htmlFor="policyName">Policy Name:</label>
-            <input
-              type="text"
-              id="policyName"
-              name="policyName"
-              value={formData.policyName}
-              onChange={handleChange}
-              required
-            />
-          </div>
-          {/* <div className="form-group">
-            <label htmlFor="policyId">Policy ID:</label>
-            <input
-              type="text"
-              id="policyId"
-              name="policyId"
-              value={formData.policyId}
-              onChange={handleChange}
-              required
-            />
-          </div> */}
-          <div className="form-group1">
-            <label htmlFor="coverage">Coverage</label>
-            <input
-              type="text"
-              id="coverage"
-              name="coverage"
-              value={formData.coverage}
-              onChange={handleChange}
-              required
-            />
-          </div>
-          <div className="form-group2">
-            <label htmlFor="max_coverage">Max Coverage</label>
-            <input
-              type="text"
-              id="max_coverage"
-              name="max_coverage"
-              value={formData.max_coverage}
-              onChange={handleChange}
-              required
-            />
-          </div>
-          <div className="form-group3">
-            <label htmlFor="max_coverage">Premium</label>
-            <input
-              type="text"
-              id="price"
-              name="price"
-              value={formData.price}
-              onChange={handleChange}
-              required
-            />
-          </div>
-          {/* <button type="submit">Submit</button> */}
-          <Button
-            isLoading={isLoading}
-            loadingText="Loading"
-            colorScheme="teal"
-            variant="outline"
-            spinnerPlacement="start"
-            type="submit"
-          >
-            Submit
-          </Button>
-        </form>
-
-        {submittedDataList.map((submittedData, index) => (
-          <div key={index} className="submitted-card">
-            <h3>Created Policy {index + 1}</h3>
-            <p>Company Name: {user.name}</p>
-            <p>Policy Name: {submittedData.policyName}</p>
-            <p>Coverage: {submittedData.coverage}</p>
-            <p>Coverage: {submittedData.max_coverage}</p>
-            <p>Coverage: {submittedData.price}</p>
-          </div>
-        ))}
-      </div>
-      <br />
-
-      <br />
-
-      <br />
-      <Footer />
+      <CompanyNavbar />
+      <Flex
+        minH={"100vh"}
+        align={"center"}
+        justify={"center"}
+        bg={useColorModeValue("gray.50", "gray.800")}
+      >
+        <Box
+          rounded={"lg"}
+          bg={useColorModeValue("white", "gray.700")}
+          boxShadow={"lg"}
+          p={8}
+        >
+          <Heading fontSize={"2xl"} textAlign={"center"} mb={6}>
+            Create Insurance
+          </Heading>
+          <form onSubmit={handleSubmit}>
+            <FormControl id="companyName" mb={4}>
+              <FormLabel>Company Name</FormLabel>
+              <Input
+                type="text"
+                name="companyName"
+                value={formData.companyName}
+                onChange={handleChange}
+                placeholder="Enter Company Name"
+              />
+            </FormControl>
+            <FormControl id="policyName" mb={4}>
+              <FormLabel>Policy Name</FormLabel>
+              <Input
+                type="text"
+                name="policyName"
+                value={formData.policyName}
+                onChange={handleChange}
+                placeholder="Enter Policy Name"
+              />
+            </FormControl>
+            <FormControl id="policyID" mb={4}>
+              <FormLabel>Policy ID</FormLabel>
+              <Input
+                type="text"
+                name="policyID"
+                value={formData.policyID}
+                onChange={handleChange}
+                placeholder="Enter Policy ID"
+              />
+            </FormControl>
+            <FormControl id="amount" mb={4}>
+              <FormLabel>Amount</FormLabel>
+              <Input
+                type="text"
+                name="amount"
+                value={formData.amount}
+                onChange={handleChange}
+                placeholder="Enter Amount"
+              />
+            </FormControl>
+            <FormControl id="description" mb={4}>
+              <FormLabel>Description</FormLabel>
+              <Input
+                type="text"
+                name="description"
+                value={formData.description}
+                onChange={handleChange}
+                placeholder="Enter Description"
+              />
+            </FormControl>
+            <Button
+              type="submit"
+              colorScheme="green"
+              isLoading={false}
+              loadingText="Submitting"
+            >
+              Submit
+            </Button>
+          </form>
+        </Box>
+      </Flex>
+      {/* <Footer /> */}
     </>
   );
 };
 
-export default CreatePolicy;
+export default CreateInsurance;

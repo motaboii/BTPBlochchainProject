@@ -54,21 +54,21 @@ const AuthProvider = ({ children }) => {
     navigate("/");
   };
 
-  useEffect(() => {
-    const token = localStorage.getItem("token");
-    if (token) {
-      let location = window.location.pathname;
-      if (location === "/") {
-        navigate("/dashboard");
-      }
-      setUser({
-        name: localStorage.getItem("scmName"),
-        role: localStorage.getItem("scmRole"),
-      });
-    } else {
-      navigate("/");
-    }
-  }, []);
+  // useEffect(() => {
+  //   const token = localStorage.getItem("token");
+  //   if (token) {
+  //     let location = window.location.pathname;
+  //     if (location === "/") {
+  //       navigate("/dashboard");
+  //     }
+  //     setUser({
+  //       name: localStorage.getItem("scmName"),
+  //       role: localStorage.getItem("scmRole"),
+  //     });
+  //   } else {
+  //     navigate("/");
+  //   }
+  // }, []);
 
   return (
     <AuthContext.Provider

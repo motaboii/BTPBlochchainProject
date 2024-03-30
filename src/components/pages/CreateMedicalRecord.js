@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-// import OrgNavbar from './OrgNavbar';
-import Footer from "./Footer";
+import HospitalNavbar from './HospitalNavbar';
+import Footer from "../components/Footer";
 import {
   Flex,
   Box,
@@ -9,8 +9,6 @@ import {
   Input,
   Button,
   Heading,
-  Checkbox,
-  Text,
   useColorModeValue,
 } from "@chakra-ui/react";
 import { useAuth } from "../context/AuthContext";
@@ -76,11 +74,10 @@ const CreateMedicalRecord = () => {
 
   return (
     <>
-      {/* <OrgNavbar /> */}
+      <HospitalNavbar />
       <Flex
         minH={"100vh"}
-        mt={4}
-        align={"start"}
+        align={"center"}
         justify={"center"}
         bg={useColorModeValue("gray.50", "gray.800")}
       >
@@ -89,6 +86,8 @@ const CreateMedicalRecord = () => {
           bg={useColorModeValue("white", "gray.700")}
           boxShadow={"lg"}
           p={8}
+          width="100%"
+          maxWidth="500px"
         >
           <Heading fontSize={"2xl"} textAlign={"center"} mb={6}>
             Create Medical Record
@@ -139,15 +138,17 @@ const CreateMedicalRecord = () => {
               colorScheme="green"
               isLoading={isLoading}
               loadingText="Submitting"
+              width="100%"
             >
               Submit
             </Button>
           </form>
         </Box>
       </Flex>
-      <Footer />
+      {/* <Footer /> */}
     </>
   );
 };
 
 export default CreateMedicalRecord;
+

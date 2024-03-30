@@ -7,14 +7,16 @@ import Navbar from "./components/pages/Navbar";
 import Footer from "./components/components/Footer";
 import LoginPage from "./components/pages/LoginPage";
 import RegisterPage from "./components/pages/RegisterPage";
-
 // import ForgetPasswordPage from './components/pages/ForgetPasswordPage'
 import DashBoard from "./components/pages/DashBoard";
+import CompanyDashboard from "./components/pages/DashboardCompany";
+import HospitalDashboard from "./components/pages/Dashboardhospital";
 import { AuthProvider } from "./components/context/AuthContext";
 import FullPolicy from "./components/pages/fullpolicy";
 import CreatePolicies from "./components/pages/CreatePolicies";
 import MedicalRecord from "./components/pages/CreateMedicalRecord";
 import { Policy } from "./components/pages/Policy";
+import Claiminsurance from "./components/pages/ClaimInsurance";
 
 // import Orglogin from './components/pages/orglogin'
 // import Orgregister from './components/pages/orgregister'
@@ -27,14 +29,19 @@ export default function App() {
     <ChakraProvider>
       <Router>
         <AuthProvider>
-          <Navbar />
+          {/* <Navbar /> */}
           <Routes>
-            <Route exact path="/" element={<LandingPage />} />
+            <Route path="/" element={<LandingPage />} />
             <Route path="/login" element={<LoginPage />} />
             <Route path="/dashboard" element={<DashBoard />} />
+            <Route path="/companydashboard" element={<CompanyDashboard />} />
+            <Route path="/hospitaldashboard" element={<HospitalDashboard />} />
             <Route path="/register" element={<RegisterPage />} />
             <Route path="/fullpolicy" element={<FullPolicy />} />
-            <Route path="/medicalrecord" element={<MedicalRecord />} />
+            <Route path="/addmedicalrecord" element={<MedicalRecord />} />
+            <Route path="/claiminsurance" element={<Claiminsurance />} />
+            <Route path="/createinsurance" element={<CreatePolicies />} />
+
             {/* <Route path="/forget-password" element={<ForgetPasswordPage />} /> */}
 
             <Route path="/CreatePolicies" element={<CreatePolicies />} />

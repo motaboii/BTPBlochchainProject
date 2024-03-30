@@ -1,6 +1,9 @@
 /* Add these styles to your existing stylesheet */
 
 /* Policies Component Styles */
+.policy {
+  min-height: 100vh;
+}
 .policies-container {
     max-width: 800px;
 height: 50%;
