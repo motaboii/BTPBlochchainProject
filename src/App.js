@@ -14,6 +14,8 @@ import { AuthProvider } from "./components/context/AuthContext";
 import FullPolicy from "./components/pages/fullpolicy";
 import CreatePolicies from "./components/pages/CreatePolicies";
 import MedicalRecord from "./components/pages/CreateMedicalRecord";
+import { Policy } from "./components/pages/Policy";
+
 // import Orglogin from './components/pages/orglogin'
 // import Orgregister from './components/pages/orgregister'
 // import OrgNavbar from './components/pages/OrgNavbar'
@@ -36,6 +38,7 @@ export default function App() {
             {/* <Route path="/forget-password" element={<ForgetPasswordPage />} /> */}
 
             <Route path="/CreatePolicies" element={<CreatePolicies />} />
+            <Route path="/policy/:id" element={<Policy />} />
             {/* <Route path="/orglogin" element={<Orglogin />} />
           <Route path="/orgregister" element={<Orgregister />} />
           <Route path="/OrgNavbar" element={<OrgNavbar />} />
