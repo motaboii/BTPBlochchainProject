@@ -1,14 +1,28 @@
 import React, { useState } from "react";
 import UserNavbar from "./UserNavbar";
 import Footer from "../components/Footer";
-import { Flex, Box, FormControl, FormLabel, Input, Button, Heading, Checkbox, Text, useColorModeValue } from "@chakra-ui/react";
+import {
+  Flex,
+  Box,
+  FormControl,
+  FormLabel,
+  Input,
+  Button,
+  Heading,
+  Checkbox,
+  Text,
+  useColorModeValue,
+} from "@chakra-ui/react";
+import { useGlobalContext } from "../../context";
 
 const CreateMedicalRecord = () => {
   const [formData, setFormData] = useState({
-    medicalRecordID: '',
-    InsuranceID: '',
+    medicalRecordID: "",
+    InsuranceID: "",
   });
   const [submittedDataList, setSubmittedDataList] = useState([]);
+  const { account, setAccount, contract, setContract } = useGlobalContext();
+  const [isLoading, setIsLoading] = useState(false);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -18,13 +32,51 @@ const CreateMedicalRecord = () => {
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setSubmittedDataList([...submittedDataList, formData]);
+    await claimInsurance();
     setFormData({
-        medicalRecordID: '',
-        InsuranceID: '',
+      medicalRecordID: "",
+      InsuranceID: "",
     });
+  };
+
+  const claimInsurance = async () => {
+    if (!formData.medicalRecordID || !formData.InsuranceID) {
+      alert("Enter medical record and insurance id");
+      return;
+    }
+    try {
+      setIsLoading(true);
+      const tx = await contract.methods
+        .claimInsurance(
+          parseInt(formData.InsuranceID),
+          parseInt(formData.medicalRecordID)
+        )
+        .call();
+      console.log(Number(tx));
+      if (Number(tx) != 0) {
+        const tx1 = await contract.methods
+          .claimInsurance(
+            parseInt(formData.InsuranceID),
+            parseInt(formData.medicalRecordID)
+          )
+          .send({
+            from: account,
+          });
+        alert(`Your Claim: Rs ${Number(tx)}`);
+      } else {
+        alert("Can't Claim");
+      }
+      setIsLoading(false);
+
+      // const tx = await contract.methods.claimInsurance(1000, 1000).call();
+      // console.log(tx);
+    } catch (error) {
+      setIsLoading(false);
+      console.log(error);
+    }
   };
 
   return (
@@ -60,8 +112,8 @@ const CreateMedicalRecord = () => {
               <FormLabel>Insurance ID</FormLabel>
               <Input
                 type="text"
-                name="InsuranceId"
-                value={formData.citizenId}
+                name="InsuranceID"
+                value={formData.InsuranceID}
                 onChange={handleChange}
                 placeholder="Enter Insurance ID"
               />
@@ -69,7 +121,7 @@ const CreateMedicalRecord = () => {
             <Button
               type="submit"
               colorScheme="green"
-              isLoading={false}
+              isLoading={isLoading}
               loadingText="Submitting"
             >
               Submit

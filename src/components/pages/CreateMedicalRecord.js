@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import HospitalNavbar from './HospitalNavbar';
+import HospitalNavbar from "./HospitalNavbar";
 import Footer from "../components/Footer";
 import {
   Flex,
@@ -13,12 +13,14 @@ import {
 } from "@chakra-ui/react";
 import { useAuth } from "../context/AuthContext";
 import axios from "axios";
+import { useGlobalContext } from "../../context";
 
 const CreateMedicalRecord = () => {
   const url = "https://misty-ray-threads.cyclic.app/api/v1/hospital/addRecord";
   const token = localStorage.getItem("token");
   const { user } = useAuth();
   const [isLoading, setIsLoading] = useState(false);
+  const { account, setAccount, contract, setContract } = useGlobalContext();
   const [formData, setFormData] = useState({
     citizenId: "",
     patientName: "",
@@ -35,10 +37,9 @@ const CreateMedicalRecord = () => {
     });
   };
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    setSubmittedDataList([...submittedDataList, formData]);
+  const createRecord = async (id) => {
     const arr = formData.diagnosis.split(",");
+    console.log(arr);
 
     try {
       setIsLoading(true);
@@ -47,6 +48,7 @@ const CreateMedicalRecord = () => {
         {
           name: formData.patientName,
           citizenID: formData.citizenId,
+          mrId: id,
           diagnosis: arr,
           bill: formData.bill,
           hospital: user.name,
@@ -63,6 +65,44 @@ const CreateMedicalRecord = () => {
       setIsLoading(false);
       console.log(error);
     }
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      if (contract !== null) {
+        if (1 === 1) {
+          try {
+            setIsLoading(true);
+            const citizenId = parseInt(formData.citizenId);
+            const name = formData.patientName;
+            const arr = formData.diagnosis.split(",");
+            const diagno = arr;
+            const bill = parseInt(formData.bill);
+            const hospital = user.name;
+            const tx = await contract.methods
+              .addMedicalRecord(citizenId, name, diagno, bill, hospital)
+              .send({
+                from: account,
+              });
+            const _id = await contract.methods.mrId().call();
+            console.log(_id);
+            createRecord(Number(_id) - 1);
+            setIsLoading(false);
+          } catch (error) {
+            setIsLoading(false);
+            console.log(error);
+          }
+        } else {
+          alert("Invalid Wallet Address");
+        }
+      } else {
+        alert("Connect Wallet");
+      }
+    } catch (error) {
+      console.log(error);
+    }
+    setSubmittedDataList([...submittedDataList, formData]);
 
     setFormData({
       citizenId: "",
@@ -151,4 +191,3 @@ const CreateMedicalRecord = () => {
 };
 
 export default CreateMedicalRecord;
-
