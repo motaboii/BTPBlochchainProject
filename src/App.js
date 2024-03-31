@@ -17,6 +17,9 @@ import CreatePolicies from "./components/pages/CreatePolicies";
 import MedicalRecord from "./components/pages/CreateMedicalRecord";
 import { Policy } from "./components/pages/Policy";
 import Claiminsurance from "./components/pages/ClaimInsurance";
+import Policies from "./components/pages/Policies";
+import UserPolicies from "./components/pages/UserPolicies";
+import UserMedicalRecord from "./components/pages/UserMedicalRecord";
 
 // import Orglogin from './components/pages/orglogin'
 // import Orgregister from './components/pages/orgregister'
@@ -41,6 +44,9 @@ export default function App() {
             <Route path="/addmedicalrecord" element={<MedicalRecord />} />
             <Route path="/claiminsurance" element={<Claiminsurance />} />
             <Route path="/createinsurance" element={<CreatePolicies />} />
+            <Route path="/shop-policies" element={<Policies />} />
+            <Route path="/current-insurance" element={<UserPolicies />} />
+            <Route path="/current-records" element={<UserMedicalRecord />} />
 
             {/* <Route path="/forget-password" element={<ForgetPasswordPage />} /> */}
 

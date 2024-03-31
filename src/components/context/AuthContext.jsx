@@ -26,7 +26,15 @@ const AuthProvider = ({ children }) => {
       localStorage.setItem("scmName", data.user.name);
       localStorage.setItem("scmRole", data.user.role);
       setUser(data.user);
-      navigate("/dashboard");
+      if (data.user.role == "user") {
+        navigate("/dashboard");
+      }
+      if (data.user.role == "company") {
+        navigate("/companydashboard");
+      }
+      if (data.user.role == "hospital") {
+        navigate("/hospitaldashboard");
+      }
     } catch (error) {
       localStorage.removeItem("token");
       localStorage.removeItem("scmName");
@@ -54,21 +62,19 @@ const AuthProvider = ({ children }) => {
     navigate("/");
   };
 
-  // useEffect(() => {
-  //   const token = localStorage.getItem("token");
-  //   if (token) {
-  //     let location = window.location.pathname;
-  //     if (location === "/") {
-  //       navigate("/dashboard");
-  //     }
-  //     setUser({
-  //       name: localStorage.getItem("scmName"),
-  //       role: localStorage.getItem("scmRole"),
-  //     });
-  //   } else {
-  //     navigate("/");
-  //   }
-  // }, []);
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+    if (token) {
+      let location = window.location.pathname;
+      if (location === "/") {
+        navigate("/dashboard");
+      }
+      setUser({
+        name: localStorage.getItem("scmName"),
+        role: localStorage.getItem("scmRole"),
+      });
+    }
+  }, []);
 
   return (
     <AuthContext.Provider
