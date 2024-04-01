@@ -4,7 +4,7 @@ import "./DashBoard.css";
 import UserNavbar from "./UserNavbar";
 import Footer from "./Footer";
 import Card from "../utils/Card";
-import { Flex, Heading } from "@chakra-ui/react";
+import { Flex, Heading, Grid, GridItem } from "@chakra-ui/react";
 import axios from "axios";
 import { useState, useEffect } from "react";
 import Loader from "../components/Loader";
@@ -49,17 +49,21 @@ const Policies = () => {
       <Heading as="h1" size="2xl" textAlign="center" p={4}>
         Policies
       </Heading>
-      <Flex
+      {/* <Flex
         wrap="wrap"
         justifyContent="space-around"
         alignItems="center"
         p={4}
         m={4}
       >
+    </Flex> */}
+      <Grid p={12} gap={4} templateColumns="repeat(3, 1fr)">
         {data.map((policy) => (
-          <PriceWrapperCard key={policy._id} policy={policy} />
+          <GridItem w="100%">
+            <PriceWrapperCard key={policy._id} policy={policy} />
+          </GridItem>
         ))}
-      </Flex>
+      </Grid>
     </>
   );
 };
