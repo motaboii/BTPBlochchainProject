@@ -1,6 +1,7 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import LandingPage from "./components/pages/LandingPage";
+import "./App.css";
 
 import { ChakraProvider } from "@chakra-ui/react";
 import Navbar from "./components/pages/Navbar";
