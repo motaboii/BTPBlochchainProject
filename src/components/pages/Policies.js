@@ -9,6 +9,7 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 import Loader from "../components/Loader";
 import { useNavigate } from "react-router-dom";
+import PriceWrapperCard from "../utils/PriceWrapperCard";
 
 const Policies = () => {
   const url = "https://misty-ray-threads.cyclic.app/api/v1/company/policies";
@@ -56,7 +57,7 @@ const Policies = () => {
         m={4}
       >
         {data.map((policy) => (
-          <Card key={policy._id} policy={policy} />
+          <PriceWrapperCard key={policy._id} policy={policy} />
         ))}
       </Flex>
     </>

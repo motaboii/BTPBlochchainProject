@@ -60,7 +60,7 @@ import { Heading } from "@chakra-ui/react";
 import { React } from "react";
 import ColorModeSwitcher from "../utils/ColorModeSwitcher";
 import HospitalNavbar from "./HospitalNavbar";
-import UserInfo from "../components/UserInfo";
+import HospitalInfo from "../components/HospitalInfo";
 import MiddleSection from "./MiddleSection";
 import Features from "../components/Features";
 import HomePage from "./HomePage";
@@ -69,7 +69,7 @@ const LandingPage = () => {
   return (
     <div>
       <HospitalNavbar />
-      <UserInfo />
+      <HospitalInfo />
       <Features />
     </div>
   );

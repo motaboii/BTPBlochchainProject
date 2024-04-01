@@ -14,6 +14,7 @@ import {
   createIcon,
   useColorModeValue,
 } from '@chakra-ui/react';
+import { color } from 'framer-motion';
 import { useNavigate } from "react-router-dom";
 
 
@@ -56,7 +57,7 @@ const name = localStorage.getItem("scmName");
           <>
           <>
   <Text color={'white.500'} fontWeight={'bold'} fontSize={{ base: '1xl', sm: '1xl', lg: '1xl' }} textAlign="justify">
-    Seamlessly navigate through options like <b style={{ color: '#68D391' }}>claiming insurance</b>, <b style={{ color: '#68D391' }}>viewing owned policies</b>, and <b style={{ color: '#68D391' }}>exploring and shopping for new policy plans</b> for yourself and your loved ones.
+    Experience the ease of <b style={{ color: '#68D391' }}>Managing Insurance Policies</b>, effortlessly <b style={{ color: '#68D391' }}> Adding New Plans</b>, <b style={{color: '#68D391'}}>Overseeing Existing Offerings</b>, and <b style={{ color: '#68D391' }}>Maintaining User Data</b> all at one place.
   </Text>
   <Text color={'white.500'} fontWeight={'bold'} fontSize={{ base: '1xl', sm: '1xl', lg: '1xl' }} textAlign="justify">
     Be sure to be safe and secured while having an effortless and smooth experience with BlockSure. Your dashboard, your control.

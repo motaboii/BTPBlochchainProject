@@ -45,14 +45,17 @@ export default function Footer() {
     <Box
       bg={useColorModeValue("gray.50", "gray.900")}
       color={useColorModeValue("gray.700", "gray.200")}
+      position={"sticky"}
+      bottom={"0"}
+      minW={"100vw"}
     >
       <Container
         as={Stack}
-        maxW={"6xl"}
         py={4}
         spacing={4}
         justify={"center"}
         align={"center"}
+
       >
         <Flex justify={"space-around"}>
           <Logo />

@@ -14,6 +14,8 @@ import {
   Button,
 } from '@chakra-ui/react'
 import { FaCheckCircle } from 'react-icons/fa'
+import { useNavigate } from "react-router-dom";
+import { useState } from "react";
 
 
 
@@ -34,6 +36,7 @@ function PriceWrapper(props) {
 }
 
 export default function ThreeTierPricing() {
+  let navigate = useNavigate();
   return (
     <Box py={12}>
       <VStack spacing={2} textAlign="center">
@@ -94,7 +97,9 @@ export default function ThreeTierPricing() {
               </ListItem>
             </List>
             <Box w="80%" pt={7}>
-              <Button w="full" colorScheme="green" variant="outline">
+              <Button  onClick={() => {
+                navigate("/login");
+                }} w="full" colorScheme="green" variant="outline">
                 Get Started
               </Button>
             </Box>
@@ -163,9 +168,11 @@ export default function ThreeTierPricing() {
                 </ListItem>
               </List>
               <Box w="80%" pt={7}>
-                <Button w="full" colorScheme="green">
-                  Get Started
-                </Button>
+              <Button  onClick={() => {
+                navigate("/login");
+                }} w="full" colorScheme="green" variant="outline">
+                Get Started
+              </Button>
               </Box>
             </VStack>
           </Box>
@@ -214,7 +221,9 @@ export default function ThreeTierPricing() {
               </ListItem>
             </List>
             <Box w="80%" pt={7}>
-              <Button w="full" colorScheme="green" variant="outline">
+            <Button  onClick={() => {
+                navigate("/login");
+                }} w="full" colorScheme="green" variant="outline">
                 Get Started
               </Button>
             </Box>

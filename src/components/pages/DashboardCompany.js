@@ -140,7 +140,7 @@ import { Heading } from "@chakra-ui/react";
 import { React } from "react";
 import ColorModeSwitcher from "../utils/ColorModeSwitcher";
 import CompanyNavbar from "./CompanyNavbar";
-import UserInfo from "../components/UserInfo";
+import CompanyInfo from "../components/CompanyInfo";
 import MiddleSection from "./MiddleSection";
 import Features from "../components/Features";
 import HomePage from "./HomePage";
@@ -149,7 +149,7 @@ const LandingPage = () => {
   return (
     <div>
       <CompanyNavbar />
-      <UserInfo />
+      <CompanyInfo />
       <Features />
     </div>
   );

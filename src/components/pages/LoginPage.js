@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Navbar from "./Navbar";
 import { Link, useNavigate } from "react-router-dom";
 import {
   Flex,
@@ -12,20 +13,28 @@ import {
   Heading,
   Text,
   useColorModeValue,
+  HStack,
 } from "@chakra-ui/react";
 import { useAuth } from "../context/AuthContext";
+import { color } from "framer-motion";
 
 
 
 export default function SignInPage() {
+  const navigate = useNavigate();
+  const signUp = () => {
+    navigate("/register");
+  };
 
   const { login,email,setEmail,password,setPassword,isLoading,setIsLoading } = useAuth();
 
   return (
+    <div>
+      {/* <Navbar /> */}
     <Flex
-      minH={"100vh"}
+      minH={"81vh"}
       align={"center"}
-      justify={"center"}
+      justify={"start"}
       bg={useColorModeValue("gray.50", "gray.800")}
     >
       <Stack spacing={8} mx={"auto"} maxW={"lg"} py={12} px={6}>
@@ -72,10 +81,17 @@ export default function SignInPage() {
               >
                 Sign in
               </Button>
+              <Text align={"center"}>
+                  Don't have an account?{" "}
+                  <Link onClick={signUp} style={{color:'#90E4C1', fontWeight:'bold'}}>
+                    Login
+                  </Link>
+                  </Text> 
             </Stack>
           </Stack>
         </Box>
       </Stack>
     </Flex>
+    </div>
   );
 }

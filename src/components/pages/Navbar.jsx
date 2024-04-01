@@ -117,15 +117,15 @@ export default function Navbar() {
               <Button
                 onClick={() => {
                   navigate("/login");
-                }}
+                }} colorScheme={"green"}
               >
                 Sign In
               </Button>
               <Button onClick={() => {
                 navigate("/register");
-                }}>Sign Up</Button>
-              <Button 
-              onClick={connectMetamask} colorScheme={"green"}>Connect to Metamask Wallet</Button>
+                }} colorScheme={"green"}>Sign Up</Button>
+              {/* <Button 
+              onClick={connectMetamask} colorScheme={"green"}>Connect to Metamask Wallet</Button> */}
             </>
           ) : (
             <>

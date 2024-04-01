@@ -123,7 +123,7 @@ export default function RegisterPage() {
     <>
       <Box
         minHeight={"10vh"}
-        bgColor={"#010409"}
+        bg={"dark"}
         display={"flex"}
         alignItems={"center"}
         justifyContent={"space-between"}
@@ -131,7 +131,8 @@ export default function RegisterPage() {
       >
         <Text
           ml={4}
-          color={"#e95065"}
+          color={"#90E4C1"}
+          fontWeight={"bold"}
           width={{ base: "50%", md: "auto", lg: "auto" }}
         >
           Future transactions can only be made with the wallet connected now
@@ -255,7 +256,7 @@ export default function RegisterPage() {
               <Stack pt={2}>
                 <Text align={"center"}>
                   Already a user?{" "}
-                  <Link onClick={signIn} color={"blue.400"}>
+                  <Link onClick={signIn} style={{color:'#90E4C1', fontWeight:'bold'}}>
                     Login
                   </Link>
                 </Text>
