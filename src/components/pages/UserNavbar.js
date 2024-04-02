@@ -77,7 +77,7 @@ export default function DashboardNavbar() {
     //   if (!isAndroid) alert("Install Metamask");
     // }
     // console.log(account);
-  }
+  //}
 
   return (
     <Box>
