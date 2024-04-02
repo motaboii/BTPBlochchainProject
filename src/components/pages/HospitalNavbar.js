@@ -69,7 +69,7 @@ export default function DashboardNavbar() {
           <Button onClick={() => navigate("/addmedicalrecord")}>
             Add Medical Record
           </Button>
-          <Button onClick={() => navigate("/current-insurance")}>
+          <Button onClick={() => navigate("/medicalRecords")}>
             Patient's Record
           </Button>
           <Button
