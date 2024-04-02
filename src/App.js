@@ -22,6 +22,7 @@ import Policies from "./components/pages/Policies";
 import UserPolicies from "./components/pages/UserPolicies";
 import UserMedicalRecord from "./components/pages/UserMedicalRecord";
 import HospitalMedicalRecords from "./components/pages/HospitalMedicalRecords";
+import ListedInsurance from "./components/pages/ListedInsurance";
 
 // import Orglogin from './components/pages/orglogin'
 // import Orgregister from './components/pages/orgregister'
@@ -48,6 +49,7 @@ export default function App() {
             <Route path="/createinsurance" element={<CreatePolicies />} />
             <Route path="/shop-policies" element={<Policies />} />
             <Route path="/current-insurance" element={<UserPolicies />} />
+            <Route path="/listed-insurance" element={<ListedInsurance />} />
             <Route
               path="/medicalRecords"
               element={<HospitalMedicalRecords />}

@@ -15,6 +15,7 @@ import { useGlobalContext } from "../../context";
 import Web3 from "web3";
 import { ethers } from "ethers";
 import WalletIcon from "@mui/icons-material/Wallet";
+import ColorModeSwitcher from "../utils/ColorModeSwitcher";
 export default function DashboardNavbar() {
   const navigate = useNavigate();
   const { user, logout } = useAuth();
@@ -64,19 +65,19 @@ export default function DashboardNavbar() {
   //       const address = await signer.getAddress();
   //       setAccount(address);
   //       console.log(address);
-        // let contractAddress = "0x3B117Ff72803eadECDc3944e414B5fb0931d872C";
-        // const contract = new ethers.Contract(contractAddress, SCM.abi, signer);
+  // let contractAddress = "0x3B117Ff72803eadECDc3944e414B5fb0931d872C";
+  // const contract = new ethers.Contract(contractAddress, SCM.abi, signer);
 
-        // setContract(contract);
-        // setProvider(provider);
-        // console.log(typeof contract);
-      //};
-      //provider && loadProvider();
-    //}
-    // else {
-    //   if (!isAndroid) alert("Install Metamask");
-    // }
-    // console.log(account);
+  // setContract(contract);
+  // setProvider(provider);
+  // console.log(typeof contract);
+  //};
+  //provider && loadProvider();
+  //}
+  // else {
+  //   if (!isAndroid) alert("Install Metamask");
+  // }
+  // console.log(account);
   //}
 
   return (
@@ -145,6 +146,7 @@ export default function DashboardNavbar() {
             Logout
           </Button>
           <Avatar cursor={"pointer"} name={user?.name} size={"md"} />
+          <ColorModeSwitcher />
         </Stack>
       </Flex>
     </Box>

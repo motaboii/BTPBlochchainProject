@@ -124,11 +124,11 @@ const CreateInsurance = () => {
                 name="coverage"
                 value={formData.coverage}
                 onChange={handleChange}
-                placeholder="Enter Amount"
+                placeholder="Enter Body Parts Covered"
               />
             </FormControl>
             <FormControl id="max_amount" mb={4}>
-              <FormLabel>Max Coverage</FormLabel>
+              <FormLabel>Max Amount</FormLabel>
               <Input
                 type="text"
                 name="max_amount"
