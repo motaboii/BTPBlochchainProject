@@ -41,7 +41,7 @@ function PriceWrapperCard({ policy }) {
   }
 
   return (
-     <Box onClick={search} cursor={"pointer"}>
+     <Box /*onClick={search}*/  cursor={"pointer"}>
       <PriceWrapper>
         <Box py={4} px={12}>
           <Text color={"red.400"} fontWeight="600" fontSize="2xl">
