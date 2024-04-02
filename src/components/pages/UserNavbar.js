@@ -21,63 +21,63 @@ export default function DashboardNavbar() {
   const isAndroid = false;
   const { account, setAccount, contract, setContract } = useGlobalContext();
 
-  // async function connectMetamask() {
-  //   //check metamask is installed
-  //   if (window.ethereum) {
-  //     // instantiate Web3 with the injected provider
-  //     const web3 = new Web3(window.ethereum);
+  async function connectMetamask() {
+    //check metamask is installed
+    if (window.ethereum) {
+      // instantiate Web3 with the injected provider
+      const web3 = new Web3(window.ethereum);
 
-  //     //request user to connect accounts (Metamask will prompt)
-  //     await window.ethereum.request({ method: "eth_requestAccounts" });
+      //request user to connect accounts (Metamask will prompt)
+      await window.ethereum.request({ method: "eth_requestAccounts" });
 
-  //     //get the connected accounts
-  //     const accounts = await web3.eth.getAccounts();
+      //get the connected accounts
+      const accounts = await web3.eth.getAccounts();
 
-  //     //show the first connected account in the react page
-  //     setAccount(accounts[0]);
-  //     console.log(account);
-  //     let contractAddress = "0x2e9eC300c8732e5d2F8B25093679895d938002b1";
-  //     let contract = new web3.eth.Contract(abi.abi, contractAddress);
-  //     setContract(contract);
+      //show the first connected account in the react page
+      setAccount(accounts[0]);
+      console.log(account);
+      let contractAddress = "0x2e9eC300c8732e5d2F8B25093679895d938002b1";
+      let contract = new web3.eth.Contract(abi.abi, contractAddress);
+      setContract(contract);
 
-  //     // const tx = await contract.methods.mrId().call();
-  //     // console.log(Number(tx));
-  //   } else {
-  //     alert("Please download metamask");
-  //   }
-  // }
-  async function ButtonClick() {
-    // console.log("window.ethereum:", window.ethereum);
-    if (typeof window.ethereum !== "undefined") {
-      const provider = new ethers.providers.Web3Provider(window.ethereum);
-      // console.log("provider:", provider);
-      const loadProvider = async () => {
-        window.ethereum.on("chainChanged", () => {
-          window.location.reload();
-        });
+      // const tx = await contract.methods.mrId().call();
+      // console.log(Number(tx));
+    } else {
+      alert("Please download metamask");
+    }
+  }
+  // async function ButtonClick() {
+  //   // console.log("window.ethereum:", window.ethereum);
+  //   if (typeof window.ethereum !== "undefined") {
+  //     const provider = new ethers.providers.Web3Provider(window.ethereum);
+  //     // console.log("provider:", provider);
+  //     const loadProvider = async () => {
+  //       window.ethereum.on("chainChanged", () => {
+  //         window.location.reload();
+  //       });
 
-        window.ethereum.on("accountsChanged", () => {
-          window.location.reload();
-        });
-        await provider.send("eth_requestAccounts", []);
-        const signer = provider.getSigner();
-        const address = await signer.getAddress();
-        setAccount(address);
-        console.log(address);
+  //       window.ethereum.on("accountsChanged", () => {
+  //         window.location.reload();
+  //       });
+  //       await provider.send("eth_requestAccounts", []);
+  //       const signer = provider.getSigner();
+  //       const address = await signer.getAddress();
+  //       setAccount(address);
+  //       console.log(address);
         // let contractAddress = "0x3B117Ff72803eadECDc3944e414B5fb0931d872C";
         // const contract = new ethers.Contract(contractAddress, SCM.abi, signer);
 
         // setContract(contract);
         // setProvider(provider);
         // console.log(typeof contract);
-      };
-      provider && loadProvider();
-    }
+      //};
+      //provider && loadProvider();
+    //}
     // else {
     //   if (!isAndroid) alert("Install Metamask");
     // }
     // console.log(account);
-  }
+  //}
 
   return (
     <Box>
@@ -119,7 +119,7 @@ export default function DashboardNavbar() {
             Connect to Wallet
           </Button> */}
           <Button
-            onClick={ButtonClick}
+            onClick={connectMetamask}
             rightIcon={<WalletIcon />}
             colorScheme="green"
             variant="solid"
