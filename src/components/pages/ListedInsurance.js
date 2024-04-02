@@ -8,10 +8,10 @@ import { Flex, Heading } from "@chakra-ui/react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import Loader from "../components/Loader";
-import PriceWrapperCard from "../utils/PriceWrapperCard";
+import PriceWrapper2 from "../utils/PriceWrapper2";
 
 const ListedInsurance = () => {
-  const url = "https://misty-ray-threads.cyclic.app/api/v1/user/policies";
+  const url = "https://misty-ray-threads.cyclic.app/api/v1/company/policies";
   const navigate = useNavigate();
   const [data, setData] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
@@ -40,9 +40,9 @@ const ListedInsurance = () => {
     }
   };
 
-//   if (isLoading) {
-//     return <Loader />;
-//   }
+  if (isLoading) {
+    return <Loader />;
+  }
 
   return (
     <>
@@ -59,7 +59,7 @@ const ListedInsurance = () => {
         minH={"60vh"}
       >
         {data.map((policy) => (
-          <PriceWrapperCard key={policy._id} policy={policy} />
+          <PriceWrapper2 key={policy._id} policy={policy} />
         ))}
       </Flex>
     
