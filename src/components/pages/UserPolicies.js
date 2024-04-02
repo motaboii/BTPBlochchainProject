@@ -9,7 +9,7 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 import Loader from "../components/Loader";
 import { useNavigate } from "react-router-dom";
-import PriceWrapperCard from "../utils/PriceWrapperCard";
+import PriceWrapper2 from "../utils/PriceWrapper2";
 
 const UserPolicies = () => {
   const url = "https://misty-ray-threads.cyclic.app/api/v1/user/policies";
@@ -58,7 +58,7 @@ const UserPolicies = () => {
         minH={"60vh"}
       >
         {data.map((policy) => (
-          <PriceWrapperCard key={policy._id} policy={policy} />
+          <PriceWrapper2 key={policy._id} policy={policy} />
         ))}
         {/* <PriceWrapperCard /> */}
       </Flex>

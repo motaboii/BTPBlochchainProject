@@ -41,7 +41,7 @@ export default function DashboardNavbar() {
           <Button onClick={() => navigate("/current-insurance")}>
             User Data
           </Button>
-          <Button onClick={() => navigate("/shop-policies")}>
+          <Button onClick={() => navigate("/listed-insurance")}>
             Listed Insurances
           </Button>
           <Button onClick={logout} colorScheme={"red"} variant={"outline"}>

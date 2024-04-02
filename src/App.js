@@ -21,7 +21,11 @@ import Claiminsurance from "./components/pages/ClaimInsurance";
 import Policies from "./components/pages/Policies";
 import UserPolicies from "./components/pages/UserPolicies";
 import UserMedicalRecord from "./components/pages/UserMedicalRecord";
+<<<<<<< HEAD
 import HospitalMedicalRecords from "./components/pages/HospitalMedicalRecords";
+=======
+import ListedInsurance from "./components/pages/ListedInsurance";
+>>>>>>> 730551f172b72ef9e7fd58feb9d9e216fd99dd97
 
 // import Orglogin from './components/pages/orglogin'
 // import Orgregister from './components/pages/orgregister'
@@ -53,6 +57,7 @@ export default function App() {
               element={<HospitalMedicalRecords />}
             />
             <Route path="/current-records" element={<UserMedicalRecord />} />
+            <Route path="/listed-insurance" element={<ListedInsurance />} />
 
             {/* <Route path="/forget-password" element={<ForgetPasswordPage />} /> */}
 
