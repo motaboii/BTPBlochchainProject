@@ -13,6 +13,10 @@ import Logo from "../utils/Logo";
 import { useGlobalContext } from "../../context";
 import Web3 from "web3";
 import abi from "../utils/contract-abi.json";
+import WalletIcon from "@mui/icons-material/Wallet";
+import ColorModeSwitcher from "../utils/ColorModeSwitcher";
+
+const isAndroid = false;
 
 export default function DashboardNavbar() {
   const navigate = useNavigate();
@@ -69,20 +73,37 @@ export default function DashboardNavbar() {
           <Button onClick={() => navigate("/addmedicalrecord")}>
             Add Medical Record
           </Button>
-          <Button onClick={() => navigate("/current-insurance")}>
+          <Button onClick={() => navigate("/medicalRecords")}>
             Patient's Record
           </Button>
           <Button
-            variant={"solid"}
-            colorScheme="teal"
             onClick={connectMetamask}
+            rightIcon={<WalletIcon />}
+            colorScheme="green"
+            variant="solid"
+            overflow={"hidden"}
+            maxWidth={"100%"}
+            mr={4}
+            // p={4}
+            width={{ base: "50%", md: "auto", lg: "auto" }}
           >
-            Connect to Wallet
+            {isAndroid === false ? (
+              account === null ? (
+                "Connect"
+              ) : (
+                "Connected"
+              )
+            ) : (
+              <a href="https://metamask.app.link/dapp/supply-chain-management-l0j5ryepd-nrs08.vercel.app/">
+                Connect
+              </a>
+            )}
           </Button>
           <Button onClick={logout} colorScheme={"red"} variant={"outline"}>
             Logout
           </Button>
           <Avatar cursor={"pointer"} name={user?.name} size={"md"} />
+          <ColorModeSwitcher />
         </Stack>
       </Flex>
     </Box>

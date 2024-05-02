@@ -10,6 +10,7 @@ import {
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
 import Logo from "../utils/Logo";
+import ColorModeSwitcher from "../utils/ColorModeSwitcher";
 
 export default function DashboardNavbar() {
   const navigate = useNavigate();
@@ -47,11 +48,8 @@ export default function DashboardNavbar() {
           <Button onClick={logout} colorScheme={"red"} variant={"outline"}>
             Logout
           </Button>
-          <Avatar
-            cursor={"pointer"}
-            name={user?.name}
-            size={"md"}
-          />
+          <Avatar cursor={"pointer"} name={user?.name} size={"md"} />
+          <ColorModeSwitcher />
         </Stack>
       </Flex>
     </Box>
