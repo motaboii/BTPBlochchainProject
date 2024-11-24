@@ -12,7 +12,7 @@ import { useNavigate } from "react-router-dom";
 import PriceWrapper2 from "../utils/PriceWrapper2";
 
 const UserPolicies = () => {
-  const url = "https://misty-ray-threads.cyclic.app/api/v1/user/policies";
+  const url = "https://btp-backend-bu0a.onrender.com/api/v1/user/policies";
   const navigate = useNavigate();
   const [data, setData] = useState([]);
   const [isLoading, setIsLoading] = useState([false]);
@@ -78,7 +78,7 @@ export default UserPolicies;
 // import { FaCheckCircle } from "react-icons/fa";
 
 // const UserPolicies = () => {
-//   const url = "https://misty-ray-threads.cyclic.app/api/v1/user/policies";
+//   const url = "https://btp-backend-bu0a.onrender.com/api/v1/user/policies";
 //   const navigate = useNavigate();
 //   const [data, setData] = useState([]);
 //   const [isLoading, setIsLoading] = useState(false);

@@ -7,7 +7,7 @@ import "./RegisterPage.css";
 import MainNavbar from './MainNavbar'
 import Footer from "./Footer";
 export default function SignUpPage() {
-  const url = "https://misty-ray-threads.cyclic.app/api/v1/auth/register";
+  const url = "https://btp-backend-bu0a.onrender.com/api/v1/auth/register";
   const [message, setMessage] = useState("");
   const [status, setStatus] = useState("error");
   const [isLoading, setIsLoading] = useState(false);

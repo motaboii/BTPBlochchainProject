@@ -26,8 +26,8 @@ import UserNavbar from "./UserNavbar";
 import { useGlobalContext } from "../../context";
 
 export const Policy = (props) => {
-  const url = "https://misty-ray-threads.cyclic.app/api/v1/company/policies";
-  const url2 = "https://misty-ray-threads.cyclic.app/api/v1/user/createPolicy";
+  const url = "https://btp-backend-bu0a.onrender.com/api/v1/company/policies";
+  const url2 = "https://btp-backend-bu0a.onrender.com/api/v1/user/createPolicy";
   const token = localStorage.getItem("token");
   const { account, setAccount, contract, setContract } = useGlobalContext();
 

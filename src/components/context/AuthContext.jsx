@@ -8,7 +8,7 @@ const AuthContext = createContext();
 
 // Create a AuthProvider component to wrap your app
 const AuthProvider = ({ children }) => {
-  const url = "https://misty-ray-threads.cyclic.app/api/v1/auth/login";
+  const url = "https://btp-backend-bu0a.onrender.com/api/v1/auth/login";
   const navigate = useNavigate();
   const toast = useToast();
 

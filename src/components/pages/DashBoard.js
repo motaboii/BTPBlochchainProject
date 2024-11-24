@@ -50,7 +50,7 @@
 // ];
 
 // const Policies = () => {
-//   const url = "https://misty-ray-threads.cyclic.app/api/v1/company/policies";
+//   const url = "https://btp-backend-bu0a.onrender.com/api/v1/company/policies";
 //   const navigate = useNavigate();
 //   const [data, setData] = useState([]);
 //   const [isLoading, setIsLoading] = useState([false]);

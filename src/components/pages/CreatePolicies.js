@@ -15,7 +15,7 @@ import {
 import { useAuth } from "../context/AuthContext";
 
 const CreateInsurance = () => {
-  const url = "https://misty-ray-threads.cyclic.app/api/v1/company/listPolicy";
+  const url = "https://btp-backend-bu0a.onrender.com/api/v1/company/listPolicy";
   const [isLoading, setIsLoading] = useState(false);
   const token = localStorage.getItem("token");
   const { user } = useAuth();

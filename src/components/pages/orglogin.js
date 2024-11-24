@@ -6,7 +6,7 @@ import "./LoginPage.css";
 import MainNavbar from './MainNavbar'
 import Footer from "./Footer";
 export default function SignInPage() {
-  const url = "https://misty-ray-threads.cyclic.app/api/v1/auth/login";
+  const url = "https://btp-backend-bu0a.onrender.com/api/v1/auth/login";
   const navigate = useNavigate();
 
   const login = async (e) => {

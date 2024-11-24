@@ -16,7 +16,7 @@ import axios from "axios";
 import { useGlobalContext } from "../../context";
 
 const CreateMedicalRecord = () => {
-  const url = "https://misty-ray-threads.cyclic.app/api/v1/hospital/addRecord";
+  const url = "https://btp-backend-bu0a.onrender.com/api/v1/hospital/addRecord";
   const token = localStorage.getItem("token");
   const { user } = useAuth();
   const [isLoading, setIsLoading] = useState(false);

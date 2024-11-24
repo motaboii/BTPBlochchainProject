@@ -26,7 +26,7 @@ import DashboardNavbar from "./HospitalNavbar";
 
 const HospitalMedicalRecords = () => {
   const url =
-    "https://misty-ray-threads.cyclic.app/api/v1/hospital/getMyRecords";
+    "https://btp-backend-bu0a.onrender.com/api/v1/hospital/getMyRecords";
   const navigate = useNavigate();
   const [data, setData] = useState([]);
   const [isLoading, setIsLoading] = useState(false);

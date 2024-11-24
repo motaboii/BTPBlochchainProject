@@ -12,7 +12,7 @@ import { useNavigate } from "react-router-dom";
 
 const UserMedicalRecord = () => {
   const url =
-    "https://misty-ray-threads.cyclic.app/api/v1/hospital/getMyRecords";
+    "https://btp-backend-bu0a.onrender.com/api/v1/hospital/getMyRecords";
   const navigate = useNavigate();
   const [data, setData] = useState(null);
   const [name, setName] = useState("");
