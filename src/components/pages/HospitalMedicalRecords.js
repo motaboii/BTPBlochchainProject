@@ -39,6 +39,7 @@ const HospitalMedicalRecords = () => {
     }
   }, []);
   const token = localStorage.getItem("token");
+  console.log(token)
   const getData = async (url) => {
     try {
       setIsLoading(true);
@@ -91,7 +92,7 @@ const HospitalMedicalRecords = () => {
                         size="xs"
                         textTransform="uppercase"
                       >
-                        {`CitizenID: ${record.citizenID}`}
+                        {`Citizen_ID: ${record.citizenID}`}
                       </Heading>
                     </Box>
                     <Divider

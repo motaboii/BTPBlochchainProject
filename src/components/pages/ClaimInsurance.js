@@ -83,7 +83,7 @@ const CreateMedicalRecord = () => {
     <>
       <UserNavbar />
       <Flex
-        minH={"100vh"}
+        minH={"75vh"}
         align={"center"}
         justify={"center"}
         bg={useColorModeValue("gray.50", "gray.800")}

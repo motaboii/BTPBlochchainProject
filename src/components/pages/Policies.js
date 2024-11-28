@@ -57,7 +57,7 @@ const Policies = () => {
         m={4}
       >
     </Flex> */}
-      <Grid p={12} gap={4} templateColumns="repeat(3, 1fr)">
+      <Grid p={12} gap={4} templateColumns="repeat(4, 1fr)">
         {data.map((policy) => (
           <GridItem w="100%">
             <PriceWrapperCard key={policy._id} policy={policy} />

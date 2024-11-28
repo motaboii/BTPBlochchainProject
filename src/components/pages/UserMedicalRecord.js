@@ -4,7 +4,7 @@ import "./DashBoard.css";
 import UserNavbar from "./UserNavbar";
 import Footer from "./Footer";
 import Card2 from "../utils/Card2";
-import { Button, Flex, Heading, Input } from "@chakra-ui/react";
+import { Button, Flex, Heading, Input, Grid, GridItem, Box } from "@chakra-ui/react";
 import axios from "axios";
 import { useState, useEffect } from "react";
 import Loader from "../components/Loader";
@@ -68,25 +68,19 @@ const UserMedicalRecord = () => {
           w={"25vw"}
           placeholder="Enter Citizen ID"
         ></Input>
-        <Button onClick={getData} variant={"solid"} colorScheme="red">
+        <Button onClick={getData} variant={"solid"} colorScheme="green">
           Get
         </Button>
       </Flex>
-      <Heading as="h1" size="2xl" textAlign="center" p={4}>
+      <Heading as="h2" size="xl" textAlign="center" p={10}>
         Medical Records
       </Heading>
-      <Flex
-        wrap="wrap"
-        justifyContent="space-around"
-        alignItems="center"
-        p={4}
-        m={2}
-        minH={"60vh"}
-      >
+      <Grid p={12} gap={4} templateColumns="repeat(4, 1fr)">
         {data?.map((record) => (
-          <Card2 key={record._id} medicalRecord={record} />
+          <GridItem w="100%">
+            <Card2 key={record._id} medicalRecord={record} /> </GridItem>
         ))}
-      </Flex>
+      </Grid>
     </>
   );
 };

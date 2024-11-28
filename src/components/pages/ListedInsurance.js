@@ -4,7 +4,7 @@ import "./DashBoard.css";
 import CompanyNavbar from "./CompanyNavbar";
 import Footer from "./Footer";
 import Card1 from "../utils/Card1";
-import { Flex, Heading } from "@chakra-ui/react";
+import { Flex, Heading, Grid, GridItem } from "@chakra-ui/react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import Loader from "../components/Loader";
@@ -48,21 +48,14 @@ const ListedInsurance = () => {
     <>
       <CompanyNavbar />
       <Heading as="h1" size="2xl" textAlign="center" p={4}>
-       Listed Insurance
+        Listed Insurances
       </Heading>
-      <Flex
-        wrap="wrap"
-        justifyContent="space-around"
-        alignItems="center"
-        p={4}
-        m={2}
-        minH={"60vh"}
-      >
+      <Grid p={12} gap={4} templateColumns="repeat(4, 1fr)">
         {data.map((policy) => (
-          <PriceWrapper2 key={policy._id} policy={policy} />
-        ))}
-      </Flex>
-    
+          <GridItem w="100%">
+            <PriceWrapper2 key={policy._id} policy={policy} /></GridItem>
+        ))} </Grid>
+
     </>
   );
 };

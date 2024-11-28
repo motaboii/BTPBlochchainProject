@@ -23,6 +23,7 @@ import UserPolicies from "./components/pages/UserPolicies";
 import UserMedicalRecord from "./components/pages/UserMedicalRecord";
 import HospitalMedicalRecords from "./components/pages/HospitalMedicalRecords";
 import ListedInsurance from "./components/pages/ListedInsurance";
+import Layout from "./components/components/Layout";
 
 // import Orglogin from './components/pages/orglogin'
 // import Orgregister from './components/pages/orgregister'
@@ -36,6 +37,7 @@ export default function App() {
       <Router>
         <AuthProvider>
           {/* <Navbar /> */}
+          <Layout>
           <Routes>
             <Route path="/" element={<LandingPage />} />
             <Route path="/login" element={<LoginPage />} />
@@ -66,10 +68,9 @@ export default function App() {
           <Route path="/home2" element={<Home2 />} />
           <Route path="/UserProfile" element={<UserProfile />} />  */}
           </Routes>
+          </Layout>
         </AuthProvider>
       </Router>
-
-      <Footer />
     </ChakraProvider>
   );
 }
