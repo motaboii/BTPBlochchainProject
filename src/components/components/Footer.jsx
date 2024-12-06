@@ -14,6 +14,7 @@ import {
 import { FaInstagram, FaTwitter, FaYoutube } from "react-icons/fa";
 import { ReactNode } from "react";
 import Logo from "../utils/Logo";
+import { FaGithub } from "react-icons/fa6";
 
 const SocialButton = ({ children, label, href }) => {
   return (
@@ -90,8 +91,11 @@ export default function Footer() {
         >
           <Text>Made by Group 44. All rights reserved</Text>
           <Stack direction={"row"} spacing={6}>
-            <SocialButton label={"Twitter"} href={"#"}>
-              <FaTwitter />
+            <SocialButton
+              label={"Github"}
+              href={"https://github.com/motaboii/Blocksure"}
+            >
+              <FaGithub />
             </SocialButton>
             <SocialButton label={"YouTube"} href={"#"}>
               <FaYoutube />

@@ -6,6 +6,7 @@ import Hero from "../components/Hero";
 import MiddleSection from "./MiddleSection";
 import Features from "../components/Features";
 import HomePage from "./HomePage";
+import VideoSection from "./VideoSection";
 
 const LandingPage = () => {
   return (
@@ -14,6 +15,7 @@ const LandingPage = () => {
       <Hero />
       <Features />
       <HomePage />
+      <VideoSection />
     </div>
   );
 };
